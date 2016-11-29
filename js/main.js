@@ -517,9 +517,14 @@ function updatePositions() {
     itemStyles.push(items[i].basicLeft + 100 * phase + 'px');
   }
 
-  for(var i = 0; i < len; i++){
+  //This function moves pizzas sinusoidally
+  function movePizzas() {
+    for(var i = 0; i < len; i++){
     items[i].style.left = itemStyles[i];
+    }
   }
+
+  requestAnimationFrame(movePizzas);
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
